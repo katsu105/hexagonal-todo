@@ -24,3 +24,34 @@ func main() {
 func hello(c echo.Context) error {
 	return c.String(http.StatusOK, "Hello, World!")
 }
+
+/*
+
+todo-app/
+  ├─ cmd/
+  │   └─ main.go
+  ├─ domain/
+  │   ├─ entities/
+  │   │   └─ task.go
+  │   └─ repository/
+  │       └─ task_repository.go
+  ├─ usecases/
+  │   ├─ create_task.go
+  │   ├─ list_tasks.go
+  │   └─ update_task.go
+  ├─ infrastructure/
+  │   ├─ persistence/
+  │   │   ├─ in_memory.go
+  │   │   └─ database.go
+  │   └─ webserver/
+  │       ├─ http/
+  │       │   ├─ server.go
+  │       │   └─ task_handler.go
+  │       └─ grpc/
+  │           ├─ server.go
+  │           └─ task_handler.go
+  └─ config/
+      └─ config.go
+
+
+*/

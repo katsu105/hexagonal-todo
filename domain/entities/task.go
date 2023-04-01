@@ -1,4 +1,4 @@
-package entites
+package entities
 
 import (
 	"errors"
@@ -10,23 +10,23 @@ type Task struct {
 	ID       int        `json:"id"`
 	Title    string     `json:"title"`
 	Complete bool       `json:"complete"`
-	DueDate  *time.Time `json:"duedate"`
+	DeadLine *time.Time `json:"deadline"`
 }
 
-func NewTask(id int, title string, duedate *time.Time) (*Task, error) {
+func NewTask(id int, title string, deadline *time.Time) (*Task, error) {
 	if title == "" {
 		return nil, errors.New("title is required")
 	}
 
 	now := time.Now()
-	if duedate.Before(now) {
+	if deadline.Before(now) {
 		return nil, errors.New("invalid deadline")
 	}
 
 	return &Task{
-		ID:      id,
-		Title:   title,
-		DueDate: duedate,
+		ID:       id,
+		Title:    title,
+		DeadLine: deadline,
 	}, nil
 }
 
@@ -36,7 +36,7 @@ func (t *Task) CompleteTask() error {
 	return nil
 }
 
-func (t *Task) UpdateTask(title string, duedate *time.Time) error {
+func (t *Task) UpdateTask(title string, deadline *time.Time) error {
 	// updateするための処理
 	fmt.Println("domain/ update!")
 	return nil
