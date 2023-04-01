@@ -33,10 +33,17 @@ func NewCreateTask(taskRepository repository.TaskRepository) TaskCreator {
 }
 
 func (c *createTask) Create(input *CreateTaskInput) (*CreateTaskOutput, error) {
+	fmt.Println("usecase/create_task Create! start")
 	task, err := entities.NewTask(input.ID, input.Title, input.DeadLine)
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("usecase/create_task Create!")
+
+	err = c.taskRepository.Save(task)
+	if err != nil {
+		return nil, err
+	}
+
+	fmt.Println("usecase/create_task Create! end")
 	return &CreateTaskOutput{Task: task}, nil
 }

@@ -14,20 +14,24 @@ type Task struct {
 }
 
 func NewTask(id int, title string, deadline *time.Time) (*Task, error) {
+	fmt.Println("domain/ NewTask! start")
 	if title == "" {
 		return nil, errors.New("title is required")
 	}
 
-	now := time.Now()
-	if deadline.Before(now) {
-		return nil, errors.New("invalid deadline")
-	}
+	// now := time.Now()
+	// if deadline.Before(now) {
+	// 	return nil, errors.New("invalid deadline")
+	// }
+
+	fmt.Println("domain/ NewTask! end")
 
 	return &Task{
 		ID:       id,
 		Title:    title,
 		DeadLine: deadline,
 	}, nil
+
 }
 
 func (t *Task) CompleteTask() error {
