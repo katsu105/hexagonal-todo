@@ -12,7 +12,6 @@ type DatabaseConfig struct {
 	DbName   string
 }
 
-// ConnectToDatabase は、データベースに接続し、*gorm.DB インスタンスを返します。
 func ConnectToDatabase(config *DatabaseConfig) (*gorm.DB, error) {
 	// dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 	// 	config.User,

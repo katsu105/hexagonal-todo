@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	// データベース接続を行う
+	// データベース接続
 	// dbConfig := &persistence.DatabaseConfig{
 	// 	Host:     "localhost",
 	// 	Port:     "3306",

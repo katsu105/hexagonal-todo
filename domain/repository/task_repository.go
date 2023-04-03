@@ -6,18 +6,18 @@ import (
 
 // TaskRepository は、タスクエンティティの永続化操作を抽象化したインターフェイス
 type TaskRepository interface {
-	// FindAll は、すべてのタスクを取得します。
+	// FindAll 全てのタスクを取得
 	// FindAll() ([]*entities.Task, error)
 
-	// FindByID は、指定されたIDのタスクを取得します。
+	// FindByID 指定されたIDのタスクを取得
 	// FindByID(id string) (*entities.Task, error)
 
-	// Save は、タスクを保存します。
+	// Save タスクを保存
 	Save(task *entities.Task) error
 
-	// Update は、タスクを更新します。
+	// Update タスクを更新
 	// Update(task *entities.Task) error
 
-	// Delete は、指定されたIDのタスクを削除します。
+	// Delete タスクを削除
 	// Delete(id string) error
 }
